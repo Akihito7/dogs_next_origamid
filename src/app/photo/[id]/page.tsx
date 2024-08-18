@@ -5,10 +5,10 @@ type PhotoIdProps = {
 }
 
 export default function PhotoId({ params } : PhotoIdProps) {
-  console.log(params)
   return (
     <main>
-      <h1>Photo : {params.id} </h1>
+      <h1>Photo : {String(params.id)}</h1>
+
     </main>
 
   );

@@ -1,7 +1,9 @@
-export default function Home() {
+import { Feed } from "@/components/feed";
+
+export default async function Home() {
   return (
-    <main>
-      <h1 className="title">Home</h1>
+    <main className="main">
+      <Feed />
     </main>
   );
 }

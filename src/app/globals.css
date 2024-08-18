@@ -29,3 +29,14 @@
   z-index: -1;
 }
 
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+
+.main {
+  padding: 4rem 0;
+}
