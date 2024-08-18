@@ -1,0 +1,54 @@
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.img {
+  width: 76rem;
+  border-radius: .5rem;
+}
+
+.photoMetaData {
+  	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .5rem;
+}
+
+.photoMetaData p {
+  font-size: 2rem;
+  color : #333;
+}
+
+.photoDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.photoDetails h2 {
+  font-size: 5rem;
+  color: #333;
+}
+
+.photoDetails p {
+  font-size: 3rem;
+  color: #333;
+}
+
+.containerComments {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  gap : .5rem;
+}
+
+.containerComments p {
+  font-size: 1.6rem;
+}
+
+.containerComments span {
+  font-size: 1.6rem;
+  color: black;
+  font-weight: 700;
+}

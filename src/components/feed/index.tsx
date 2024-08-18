@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import styles from './index.module.css';
+import Link from 'next/link';
 
-type Photo = {
+export type Photo = {
   id: number;
   author: string;
   title: string;
@@ -25,7 +26,9 @@ export async function Feed() {
     <div className={styles.container}>
       <div className={styles['container-grid']}>
         {data.map((photo) => (
-          <div key={photo.id} className={styles.item}>
+          <Link
+            href={`/photo/${photo.id}`}
+            key={photo.id} className={styles.item}>
             <Image
               width={800}
               height={400}
@@ -38,7 +41,7 @@ export async function Feed() {
             <div className={styles.overlay}>
               <p>{photo.acessos}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
