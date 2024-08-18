@@ -1,9 +1,31 @@
 :root{
   font-size: 62.5%;
+  --type-second : var(--type-second-spectral), 'Georgia'
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
+
+.title {
+  font-family: var(--type-second-spectral);
+  position: relative;
+  z-index: 1;
+}
+
+.title:after {
+  content: "";
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: #fb1;
+  position: absolute;
+  bottom: 24px;
+  left : -2px;
+  border-radius: .2rem;
+  z-index: -1;
+}
+

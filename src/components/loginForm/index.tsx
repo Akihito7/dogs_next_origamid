@@ -4,7 +4,7 @@ import styles from "./index.module.css"
 export default function LoginForm() {
   return (
     <div className={styles.containerMain}>
-      <h2>Login</h2>
+      <h2 className="title">Login</h2>
 
       <div className={styles.containerForm}>
         <div className={styles.inputContainer}>
