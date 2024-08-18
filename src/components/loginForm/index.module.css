@@ -90,3 +90,8 @@
   padding: .8rem 1.2rem;
   transition: .1s;
 }
+
+.error {
+  font-size: 1.6rem;
+  color: red;
+}
