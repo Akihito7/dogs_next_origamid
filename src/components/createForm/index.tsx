@@ -1,16 +1,21 @@
-import Link from "next/link"
 import styles from "./index.module.css"
 
-export default function LoginForm() {
+export default function CreateForm() {
   return (
     <div className={styles.containerMain}>
-      <h2 className="title">Login</h2>
+      <h2 className="title">Cadastre-se</h2>
 
       <div className={styles.containerForm}>
 
 
         <div className={styles.inputContainer}>
           <label htmlFor="">Usuário</label>
+          <input type="text" />
+        </div>
+
+
+        <div className={styles.inputContainer}>
+          <label htmlFor="">Email</label>
           <input type="text" />
         </div>
 
@@ -22,20 +27,9 @@ export default function LoginForm() {
         <button
           className={styles.button}
         >
-          Entrar
+          Cadastrar
         </button>
-
-        <Link href="/">Perdeu a senha?</Link>
       </div>
-
-      <div className={styles.containerRegister}>
-        <h3>Cadastre-se</h3>
-        <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Link href='/login/create'>
-          <button>Cadastro</button>
-        </Link>
-      </div>
-
     </div>
   )
 }

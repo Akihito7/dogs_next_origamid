@@ -15,7 +15,7 @@ export default function Header() {
 
       <div className={styles.containerActions}>
           <Link
-            href="/auth/login"
+            href="/login"
             className={styles.link}
           >
             Login / Criar
