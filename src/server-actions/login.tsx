@@ -10,6 +10,7 @@ type DataType = {
 }
 
 const NAMETOKEN = "@dog:token"
+const USER = "@dog:user"
 
 export async function login(username : string, password : string){
 
@@ -32,6 +33,17 @@ export async function login(username : string, password : string){
     httpOnly : true,
     secure : true
   });
+
+  const user = {
+    email : data.user_email,
+    nicename : data.user_nicename,
+    displaName : data.user_display_name
+  }
+
+  cookies().set(USER, JSON.stringify(user), {
+    httpOnly : true,
+    secure : true
+  })
 
   redirect("/")
 }
