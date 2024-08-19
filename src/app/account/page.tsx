@@ -1,18 +1,35 @@
 import Link from "next/link";
 import styles from "./index.module.css"
+import { getPhotosFeed, getPhotosUser } from "@/server-actions/getPhotos";
+import { FeedUser } from "@/components/feedUser";
 
-export default function Account() {
+export default async function Account() {
+
+  const data = await getPhotosUser();
+
   return (
     <div className={styles.containerMain}>
-      <p className={styles.p}>Nenhuma foto encontrada</p>
+      {
+        data.length > 0 &&
+        <FeedUser />
+      }
 
-      <Link href={"/account/post"} >
-        <button
-          className={styles.button}
-        >
-          Postar foto
-        </button>
-      </Link>
+      {
+        data.length === 0 &&
+        <>
+          <p className={styles.p}>Nenhuma foto encontrada</p>
+
+          <Link href={"/account/post"} >
+            <button
+              className={styles.button}
+            >
+              Postar foto
+            </button>
+          </Link>
+        </>
+      }
+
+
     </div>
   );
 }

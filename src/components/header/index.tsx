@@ -8,6 +8,7 @@ export default async function Header() {
   
   return (
     <div className={styles.container}>
+      <Link href="/" >
       <Image
         width={28}
         height={22}
@@ -15,10 +16,12 @@ export default async function Header() {
         src="../../../dogs.svg"
         alt="imagem de um focinho de cachorro"
       />
+      
+      </Link>
 
       <div className={styles.containerActions}>
           <Link
-            href="/login"
+            href="/account"
             className={styles.link}
           >
           {user ? user.nicename : "Login / Criar"}

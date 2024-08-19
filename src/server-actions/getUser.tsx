@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers"
 
-type UserType = {
+export type UserType = {
   email : string;
   nicename : string;
   displayName : string;

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './index.module.css';
 import Link from 'next/link';
-import { getPhotosFeed } from '@/server-actions/getPhotos';
+import { getPhotosUser } from '@/server-actions/getPhotos';
 
 export type Photo = {
   id: number;
@@ -15,8 +15,8 @@ export type Photo = {
   total_comments: string;
 };
 
-export async function Feed() {
-  const data: Photo[] = await getPhotosFeed();
+export async function FeedUser() {
+  const data: Photo[] = await getPhotosUser();
   
   return (
     <div className={styles.container}>
