@@ -13,7 +13,7 @@ export default async function Header() {
         width={28}
         height={22}
         quality={75}
-        src="../../../dogs.svg"
+        src="../../../../dogs.svg"
         alt="imagem de um focinho de cachorro"
       />
       
