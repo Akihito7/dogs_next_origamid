@@ -5,7 +5,7 @@
 .containerImage {
   width: 50vw;
   height: 100vh;
-  background-image: url('/login.jpeg');
+  background-image: url('../../../../public/login.jpeg');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 

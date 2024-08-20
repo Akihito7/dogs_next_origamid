@@ -51,7 +51,7 @@ export default function LoginForm() {
           Entrar
         </button>
 
-        <Link href="/">Perdeu a senha?</Link>
+        <Link href="/login/create">Perdeu a senha?</Link>
       </div>
 
       <div className={styles.containerRegister}>

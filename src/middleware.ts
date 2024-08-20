@@ -11,21 +11,23 @@ function hasToken(request: NextRequest): boolean {
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
-  // Permitir acesso a arquivos estáticos do Next.js e favicon
+  if(url.pathname.includes('/images')){
+    return NextResponse.next()
+  }
   if (
-    url.pathname.startsWith('/_next/static/') || 
-    url.pathname.startsWith('/favicon.ico') || 
+    url.pathname.startsWith('/_next/static/') ||
+    url.pathname.startsWith('/favicon.ico') ||
     url.pathname.startsWith('/public/')
   ) {
     return NextResponse.next();
   }
 
-  // Permitir acesso à página de login
-  if (url.pathname === '/login') {
+
+  if (url.pathname === '/login' || url.pathname === '/login/create') {
     return NextResponse.next();
   }
 
-  // Redirecionar para a página de login se o token não estiver presente
+  
   if (!hasToken(request)) {
     url.pathname = '/login';
     return NextResponse.redirect(url);
@@ -36,7 +38,8 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/login',                 // Permite acesso à página de login
-    '/:path*',                // Permite acesso a todas as outras rotas
+    '/login',                 
+    '/:path*',
+    '/images'
   ],
 };

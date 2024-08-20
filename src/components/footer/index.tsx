@@ -8,7 +8,7 @@ export default function Footer() {
         width={28}
         height={22}
         quality={75}
-        src="../../../dogs.svg"
+        src="./images/dogs.svg"
         alt="imagem de um focinho de cachorro"
       />
       <p>Dogs. Alguns direitos reservados.</p>
