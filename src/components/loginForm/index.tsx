@@ -3,56 +3,65 @@ import Link from "next/link"
 import styles from "./index.module.css"
 import { useState } from "react"
 import { login } from "@/server-actions/login";
+import { useFormState, useFormStatus } from "react-dom";
+
+function Button() {
+  const status = useFormStatus();
+  return (
+    <button
+      style={{
+        opacity: status.pending ? .5 : 1
+      }}
+      disabled={status.pending}
+      className={styles.button}
+    >
+      {status.pending ? "Carregando" : "Entrar"}
+    </button>
+  )
+}
 
 export default function LoginForm() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+
   const [error, setError] = useState("");
 
-  async function handleLogin(){
-    if(!username || !password) alert("Preencha os campos");
-    const response = await login(username,password);
-    if(response) setError(response)
+  async function handleLogin(form: FormData) {
+    event?.preventDefault()
+    const username = String(form.get("username"));
+    const password = String(form.get("password"));
+    if (!username || !password) return alert("Preencha os campos");
+    const response = await login(username, password);
+    if (response) setError(response)
   }
 
   return (
     <div className={styles.containerMain}>
+
       <h2 className="title">Login</h2>
-
-      <div className={styles.containerForm}>
-
-
+      <form
+        action={handleLogin}
+        className={styles.containerForm}
+      >
         <div className={styles.inputContainer}>
           <label htmlFor="">Usuário</label>
           <input
             type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            />
+            name="username"
+          />
         </div>
 
         <div className={styles.inputContainer}>
           <label htmlFor="">Senha</label>
           <input
+            name="password"
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
           />
         </div>
-
         {
-          error ? <p className={styles.error}>{error}</p> : null 
+          error ? <p className={styles.error}>{error}</p> : null
         }
-
-        <button
-          className={styles.button}
-          onClick={handleLogin}
-        >
-          Entrar
-        </button>
-
+        <Button />
         <Link href="/login/create">Perdeu a senha?</Link>
-      </div>
+      </form>
 
       <div className={styles.containerRegister}>
         <h3>Cadastre-se</h3>

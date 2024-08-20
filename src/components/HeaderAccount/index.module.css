@@ -1,35 +1,33 @@
 .main {
     overflow-x: hidden;
     margin-top: 2rem;
-  }
-  .container {
+}
+
+.container {
     margin: 0 auto;
     width: 76rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .container h2 {
+}
+
+.container h2 {
     font-size: 5rem;
     color: #333;
-    font-family:  var(--type-second-spectral);
-  }
-  
-  
-  
-  .container button {
+    font-family: var(--type-second-spectral);
+}
+
+
+.container button {
     width: 40px;
     height: 40px;
     background-color: #EEEEEE;
     border: none;
     border-radius: .5rem;
     cursor: pointer;
-  }
-  
-  .containerButtons {
+}
+
+.containerButtons {
     display: flex;
-    gap : 1rem;
-  }
-  
-  
+    gap: 1rem;
+}

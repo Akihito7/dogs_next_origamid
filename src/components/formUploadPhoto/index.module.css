@@ -1,0 +1,66 @@
+.containerMain {
+    margin: 0 auto;
+    width: 76rem;
+    min-height: 100vh;
+
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+
+}
+
+.inputContainer input {
+    height: 4.4rem;
+    border-radius: .5rem;
+    border: 1px solid #eee;
+    background-color: #eee;
+    transition: 0.1 ease;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.inputContainer {
+    max-width: 38rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputContainer input:hover,
+.inputContainer input:focus {
+    height: 4.4rem;
+    border-radius: .5rem;
+    outline: none;
+    border-color: #fb1;
+    background: #fff;
+    box-shadow: 0 0 0 3px #fea;
+}
+
+.inputContainer label {
+    font-size: 2rem;
+    color: #333;
+}
+
+.button {
+    font-size: 1.8rem;
+    cursor: pointer;
+    border: none;
+    border-radius: .4rem;
+    background: #fb1;
+    color: #764701;
+    width: 12rem;
+    min-height: 4rem;
+    padding: .8rem 1.2rem;
+    transition: .1s;
+}
+
+.inputFile {
+    height: 5rem;
+    font-size: 1.6rem;
+    color: #333;
+}

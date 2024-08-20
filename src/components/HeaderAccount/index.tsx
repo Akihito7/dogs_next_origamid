@@ -29,7 +29,7 @@ export default function HeaderAccount() {
                         <AiOutlineAppstore size={26} color="black" />
                     </button>
                 </Link>
-                <Link href='/account'>
+                <Link href='/account/post'>
                     <button>
                         <GoPlus size={26} color="black" />
                     </button>
