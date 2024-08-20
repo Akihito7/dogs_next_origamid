@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./index.module.css"
-import { getPhotosFeed, getPhotosUser } from "@/server-actions/getPhotos";
+import { getPhotosUser } from "@/server-actions/getPhotos";
 import { FeedUser } from "@/components/feedUser";
 
 export default async function Account() {
@@ -28,8 +28,6 @@ export default async function Account() {
           </Link>
         </>
       }
-
-
     </div>
   );
 }

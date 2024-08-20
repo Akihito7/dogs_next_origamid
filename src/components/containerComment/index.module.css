@@ -8,7 +8,7 @@
 
 .input {
     height: 6rem;
-    width: 85%;
+    width: 90%;
     border-radius: .5rem;
     border: 1px solid #eee;
     background-color: #eee;
@@ -18,24 +18,16 @@
     color: #333;
 }
 
-.input:hover,
-.input:focus {
-    border-radius: .5rem;
-    outline: none;
-    border-color: #fb1;
-    background: #fff;
-    box-shadow: 0 0 0 3px #fea;
-}
 
 .button {
-    width: 8rem;
     border: none;
-    border: 1px solid #fb1;
-    background-color: #fb1;
-    border-radius: .5rem;
-    height: 6rem;
-    transition: ease .2s;
+    background-color: transparent;
     cursor: pointer;
+}
+
+.button:hover svg
+{
+  fill: #fb1;
 }
 
 .button:hover {
