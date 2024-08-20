@@ -11,9 +11,15 @@ function hasToken(request: NextRequest): boolean {
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
-  if(url.pathname.includes('/images')){
-    return NextResponse.next()
+  if (url.pathname.includes('/images')) {
+    if (url.pathname.startsWith('/images')) {
+      return NextResponse.next(); 
+    }
+    const newPathname = url.pathname.substring(url.pathname.indexOf('/images'));
+    url.pathname = newPathname; 
+    return NextResponse.redirect(url); 
   }
+
   if (
     url.pathname.startsWith('/_next/static/') ||
     url.pathname.startsWith('/favicon.ico') ||

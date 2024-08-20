@@ -22,7 +22,7 @@
     width: 40px;
     height: 40px;
     background-color: #EEEEEE;
-    border: none;
+    border: 1px solid #EEEEEE;
     border-radius: .5rem;
     cursor: pointer;
 }

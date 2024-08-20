@@ -21,7 +21,7 @@ export async function Feed() {
   return (
     <div className={styles.container}>
       <div className={styles['container-grid']}>
-        {data.map((data) => (
+        {data.map((data, index) => (
           <Link
             href={`/photo/${data.id}`}
             key={data.id} className={styles.item}>
@@ -30,6 +30,7 @@ export async function Feed() {
               height={400}
               quality={75}
               sizes="80w"
+              priority={index < 3}
               className={styles.item}
               src={data.src}
               alt={data.title}
