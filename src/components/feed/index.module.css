@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  font-family: var(--type-first);
 }
 
 .container-grid {
@@ -39,10 +40,18 @@
   opacity: 0;
   transition: opacity 0.3s ease; 
   text-align: center; 
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.overlay p {
+  font-weight: 100;
 }
 
 .item:hover img {
-  opacity: 0.5;
+  filter: brightness(50%); 
 }
 
 .item:hover .overlay {

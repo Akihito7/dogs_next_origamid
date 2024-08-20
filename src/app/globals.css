@@ -1,5 +1,6 @@
 :root{
   font-size: 62.5%;
+  --type-first : Helvetica, Arial, sans-serif;
   --type-second : var(--type-second-spectral), 'Georgia'
 }
 

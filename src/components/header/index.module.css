@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   padding: 2rem 0;
   border-bottom: 1px solid rgb(184, 184, 184);
+  font-family: var(--type-first);
 }
 
 .containerActions {
@@ -15,5 +16,5 @@
 .link {
   text-decoration: none;
   color: black;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
