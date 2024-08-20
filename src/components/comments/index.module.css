@@ -1,0 +1,17 @@
+.containerComments {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    gap : .5rem;
+  }
+
+.p {
+    font-size: 1.6rem;
+  }
+  
+.span {
+    font-size: 1.6rem;
+    color: black;
+    font-weight: 700;
+  }
+  

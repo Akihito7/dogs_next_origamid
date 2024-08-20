@@ -5,6 +5,7 @@ import { getCookies } from "@/server-actions/getCookies";
 import { GetUser } from "@/server-actions/getUser";
 import ButtonDelete from "@/components/buttonDelete";
 import { ContainerComment } from "@/components/containerComment";
+import { Comments } from "@/components/comments";
 
 type PhotoIdProps = {
   params: {
@@ -55,12 +56,11 @@ export default async function PhotoId({ params }: PhotoIdProps) {
 
 
           <div className={styles.containerComments}>
-            <p><span>Cat:</span> Joel?</p>
-            <p><span>Cat:</span> Joel?</p>
+              <Comments idPhoto={params.id} />
           </div>
         </div>
 
-        <ContainerComment />
+        <ContainerComment idPhoto={params.id} />
       </div>
     </main>
 
