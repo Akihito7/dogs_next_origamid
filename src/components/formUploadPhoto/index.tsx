@@ -15,7 +15,7 @@ function Button() {
                 opacity: status.pending ? .5 : 1
             }}
         >
-            {status.pending ? "Carregando" : "Postar"}
+            {status.pending ? "Carregando" : "Enviar"}
         </button>
     )
 }

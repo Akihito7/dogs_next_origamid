@@ -4,6 +4,7 @@ import styles from "./index.module.css"
 import { getCookies } from "@/server-actions/getCookies";
 import { GetUser } from "@/server-actions/getUser";
 import ButtonDelete from "@/components/buttonDelete";
+import { ContainerComment } from "@/components/containerComment";
 
 type PhotoIdProps = {
   params: {
@@ -58,6 +59,8 @@ export default async function PhotoId({ params }: PhotoIdProps) {
             <p><span>Cat:</span> Joel?</p>
           </div>
         </div>
+
+        <ContainerComment />
       </div>
     </main>
 
