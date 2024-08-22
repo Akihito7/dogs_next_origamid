@@ -1,23 +1,35 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest } from 'next/server';
+import { verifyToken } from './server-actions/login';
+import { Logout } from './server-actions/getUser';
 
 const NAMETOKEN = "@dog:token";
 
-function hasToken(request: NextRequest): boolean {
+type ResponseVerifyToken = {
+  code: string;
+  message?: string;
+  data: { status: number }
+}
+async function verifyIsTokenValid(request: NextRequest) {
   const token = request.cookies.get(NAMETOKEN)?.value;
-  return !!token;
+  if (!token) return false;
+  const isValidToken: ResponseVerifyToken = await verifyToken(token.toString());
+  if (isValidToken.data.status != 200) {
+    return false;
+  }
+  return true
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
   if (url.pathname.includes('/images')) {
     if (url.pathname.startsWith('/images')) {
-      return NextResponse.next(); 
+      return NextResponse.next();
     }
     const newPathname = url.pathname.substring(url.pathname.indexOf('/images'));
-    url.pathname = newPathname; 
-    return NextResponse.redirect(url); 
+    url.pathname = newPathname;
+    return NextResponse.redirect(url);
   }
 
   if (
@@ -28,23 +40,25 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-
   if (url.pathname === '/login' || url.pathname === '/login/create') {
     return NextResponse.next();
   }
 
-  
-  if (!hasToken(request)) {
-    url.pathname = '/login';
-    return NextResponse.redirect(url);
-  }
+  const isValidToken = await verifyIsTokenValid(request);
+  if (!isValidToken) {
+    if (url.pathname === "/" || url.pathname.startsWith("/photo"))
+      return NextResponse.next()
 
-  return NextResponse.next();
+    else {
+      url.pathname = '/login';
+      return NextResponse.redirect(url);
+    }
+  }
 }
 
 export const config = {
   matcher: [
-    '/login',                 
+    '/login',
     '/:path*',
     '/images'
   ],

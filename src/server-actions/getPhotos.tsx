@@ -1,6 +1,6 @@
 'use server'
 import { Photo } from "@/components/feed";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers"
 import { UserType } from "./getUser";
 const NAMETOKEN = "@dog:token"
@@ -15,9 +15,6 @@ export async function getPhotosFeed() {
       tags: ['photos']
     },
     method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
   });
   const data = await response.json();
   return data;
