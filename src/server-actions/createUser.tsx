@@ -14,7 +14,6 @@ export async function createUser(user: CreateUserParams) {
         },
         body: JSON.stringify(user)
     })
-    console.log(response.ok)
 
     return response.ok
     

@@ -40,7 +40,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (url.pathname === '/login' || url.pathname === '/login/create') {
+  if (url.pathname.startsWith("/login")) {
     return NextResponse.next();
   }
 

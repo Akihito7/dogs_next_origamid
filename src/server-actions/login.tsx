@@ -50,14 +50,40 @@ export async function login(username: string, password: string) {
 
 export async function verifyToken(token: string) {
   const response = await fetch("https://dogsapi.origamid.dev/json/jwt-auth/v1/token/validate", {
-    method : 'POST',
+    method: 'POST',
     headers: {
       'Content-Type': 'Application/json',
-      'Authorization' : `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     },
     body: JSON.stringify(token)
   })
 
   const isValid = await response.json();
   return isValid
+}
+
+
+export async function lostPassword(login: string, urlLost: string) {
+  const response = await fetch("https://dogsapi.origamid.dev/json/api/password/lost",
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': "application/json"
+      },
+      body: JSON.stringify({
+        login,
+        url: urlLost
+      })
+    }
+  )
+  return response.ok
+}
+
+export async function resetPassword(form: FormData) {
+  const response = await fetch("https://dogsapi.origamid.dev/json/api/password/reset", {
+    method: 'POST',
+    body: form
+  })
+  if (!response.ok) return false
+  return true;
 }
