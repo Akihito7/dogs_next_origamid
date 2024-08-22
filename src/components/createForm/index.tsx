@@ -2,6 +2,7 @@
 
 import { createUser } from "@/server-actions/createUser"
 import styles from "./index.module.css"
+import { login } from "@/server-actions/login";
 
 function Button() {
   return (
@@ -16,16 +17,18 @@ export default function CreateForm() {
   async function handleSubmitForm(form: FormData) {
     event?.preventDefault();
 
+    if (!form.get("username")) return alert("Preencha com um nome")
+    if (!form.get("email")) return alert("Preencha com um email!")
+    if (!form.get("password")) return alert("Informe uma senha!")
     const user = {
       username: String(form.get("username")),
       email: String(form.get("email")),
       password: String(form.get("password"))
     }
+    const response =  await createUser(user);
+    if(!response) return alert("Email ou usuário já cadastrado");
 
-    if (user.username && user.email && user.password) {
-      await createUser(user)
-    }
-
+    await login(user.username, user.password);
   };
 
   return (
@@ -37,15 +40,15 @@ export default function CreateForm() {
       >
         <div className={styles.inputContainer}>
           <label htmlFor="">Usuário</label>
-          <input type="text" name="username" required/>
+          <input type="text" name="username" required />
         </div>
         <div className={styles.inputContainer}>
           <label htmlFor="">Email</label>
-          <input type="text" name="email" required />
+          <input type="email" name="email" required />
         </div>
         <div className={styles.inputContainer}>
           <label htmlFor="">Senha</label>
-          <input type="password" name="password" required/>
+          <input type="password" name="password" required />
         </div>
 
         <Button />

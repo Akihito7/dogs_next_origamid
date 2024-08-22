@@ -26,28 +26,26 @@
   font-size: 6rem;
 }
 
-
 .inputContainer {
-  max-width: 44rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap:1rem;
+}
 
+.inputContainer input {
+  height: 4.4rem;
+  border-radius: .5rem;
+  border: 1px solid #eee;
+  background-color: #eee;
+  transition: 0.1 ease;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: #333;
 }
 
 .inputContainer input:hover,
 .inputContainer input:focus
 {
-  height: 4.4rem;
-  border-radius: .5rem;
-  outline: none;
-  border-color: #fb1;
-  background: #fff;
-  box-shadow: 0 0 0 3px #fea;
-}
-
-
-.inputContainer input:focus{
   height: 4.4rem;
   border-radius: .5rem;
   outline: none;
